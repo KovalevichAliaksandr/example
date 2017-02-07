@@ -22,5 +22,6 @@ INSERT INTO job.employee (first_name, last_name, dob, salary, id_department) VAL
 
 
 
+
 COMMIT ;
 SELECT * FROM job.employee;
