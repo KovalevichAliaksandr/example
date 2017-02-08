@@ -14,17 +14,17 @@ public class Employee {
     private Long id;
 
     @NotNull
-    @Size(min = 1,max = 45)
+    @Size(min = 1,max = 45,message="first name should be between 1 - 45 symbols")
     private String firstName;
 
     @NotNull
-    @Size(min = 1,max = 45)
+    @Size(min = 1,max = 45,message="last name should be between 1 - 45 symbols")
     private String lastName;
 
     @Past
     private Date dob;
 
-    @Min(0)
+    @Min(value = 0,message="salary  should be  >=0 ")
     private Integer salary;
 
     @NotNull
@@ -76,5 +76,17 @@ public class Employee {
 
     public void setIdDepartment(Long idDepartment) {
         this.idDepartment = idDepartment;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dob=" + dob +
+                ", salary=" + salary +
+                ", idDepartment=" + idDepartment +
+                '}';
     }
 }

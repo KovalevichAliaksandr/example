@@ -131,22 +131,22 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.integration</groupId>-->
-            <!--<artifactId>spring-integration-core</artifactId>-->
-            <!--<version>${spring-integration.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-core</artifactId>
+            <version>${spring-integration.version}</version>
+        </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.integration</groupId>-->
-            <!--<artifactId>spring-integration-ws</artifactId>-->
-            <!--<version>${spring-integration.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.integration</groupId>-->
-            <!--<artifactId>spring-integration-xml</artifactId>-->
-            <!--<version>${spring-integration.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-ws</artifactId>
+            <version>${spring-integration.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-xml</artifactId>
+            <version>${spring-integration.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
@@ -176,11 +176,11 @@
         </dependency>
 
         <!--Testing-->
-        <!--<dependency>-->
-            <!--<groupId>org.mockito</groupId>-->
-            <!--<artifactId>mockito-core</artifactId>-->
-            <!--<version>2.2.7</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.2.7</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

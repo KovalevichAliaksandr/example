@@ -11,7 +11,6 @@
     </appender>
 
     <!-- all, trace, debug, info, warn, error, fatal, off -->
-
     <root>
         <level value="debug" />
         <appender-ref ref="consoleLog" />

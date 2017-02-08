@@ -1,0 +1,17 @@
+package com.departments.dao;
+
+import com.departments.model.Department;
+import com.departments.model.Employee;
+
+import java.util.List;
+
+/**
+ * Created by alex on 8.2.17.
+ */
+public interface DepartmentDao {
+    public Department findDepartmentById(Long id);
+    public List<Department> findAllDepartment();
+    public Long save (Department department);
+    public void delete(Long id);
+    public void update(Department department);
+}

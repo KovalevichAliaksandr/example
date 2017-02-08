@@ -20,7 +20,5 @@ INSERT INTO job.employee (first_name, last_name, dob, salary, id_department) VAL
 INSERT INTO job.employee (first_name, last_name, dob, salary, id_department) VALUES ('Sofia','Baker ','1961-01-01',1400,4);
 INSERT INTO job.employee (first_name, last_name, dob, salary, id_department) VALUES ('Lillian','Mitchel','1962-03-03',1400,5);
 
-
-
 COMMIT ;
-SELECT * FROM job.employee;
+
