@@ -64,7 +64,7 @@ public class DepartmentDaoImpl implements DepartmentDao,InitializingBean {
     }
 
     @Override
-    public List<Department> findAllDepartment() {
+    public List<Department> findAllDepartments() {
         log.info("Find all contacts ");
         return namedParameterJdbcTemplate.query(SQL_FIND_ALL_DEPARTMENTS,new DepartmentRowMapper());
     }

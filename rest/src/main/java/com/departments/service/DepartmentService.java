@@ -1,14 +1,14 @@
-package com.departments.dao;
+package com.departments.service;
 
 import com.departments.model.Department;
-import com.departments.model.Employee;
 
 import java.util.List;
 
 /**
  * Created by alex on 8.2.17.
  */
-public interface DepartmentDao {
+
+public interface DepartmentService {
     public Department findDepartmentById(Long id);
     public List<Department> findAllDepartments();
     public Long save (Department department);

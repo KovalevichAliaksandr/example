@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
 
-        
+
         <module>rest</module>
     </modules>
 
@@ -42,7 +42,6 @@
             <version>${ee.version}</version>
             <scope>provided</scope>
         </dependency>
-
 
 
         <dependency>
@@ -90,8 +89,6 @@
             <version>1.7.7</version>
 
         </dependency>
-
-
 
 
         <!-- Spring -->
@@ -175,6 +172,24 @@
             <version>${spring.security}</version>
         </dependency>
 
+        <!--Converting -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.8.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.8.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.8.6</version>
+        </dependency>
+
         <!--Testing-->
         <dependency>
             <groupId>org.mockito</groupId>
@@ -240,8 +255,6 @@
             </plugin>
         </plugins>
     </build>
-
-
 
 
 </project>

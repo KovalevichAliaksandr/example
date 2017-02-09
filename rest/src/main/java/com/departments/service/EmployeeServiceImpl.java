@@ -19,19 +19,20 @@ import java.util.Map;
  * Created by alex on 8.2.17.
  */
 //@Repository
-//@Transactional
-//@Service(value = "contactService")
+@Transactional
+@Service(value = "employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
     private static final Logger log= LoggerFactory.getLogger(EmployeeServiceImpl.class);
 
     @Autowired
     private EmployeeDao employeeDao;
 
-
     public  EmployeeServiceImpl(EmployeeDao employeeDao){
         this.employeeDao=employeeDao;
     }
+
     @Override
+    @Transactional(readOnly = true)
     public Employee findEmployeeById(Long id) {
         Assert.notNull(id,"id must not be null");
         Assert.isTrue(id>0,"id must greater than 0 ");
@@ -39,29 +40,36 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Employee> findAllEmployees() {
         return employeeDao.findAllEmployees();
     }
 
     @Override
     public Long save(Employee employee) {
-
         Assert.notNull(employee.getFirstName(),"First name must be not null");
         Assert.notNull(employee.getLastName(),"Last Name must be not null");
         Assert.isTrue(employee.getSalary()>=0,"salary must greater or equally than 0 ");
-        Date today=new Date();
-        Assert.isTrue(today.before(employee.getDob()),"Day of Birth  must be up to today ");
+        Assert.isTrue(new Date().after(employee.getDob()),"Day of Birth  must be up to today ");
         Long id=employeeDao.save(employee);
         return id;
     }
 
     @Override
     public void delete(Long id) {
+        Assert.notNull(id,"id must not be null");
+        Assert.isTrue(id>0,"id must greater than 0 ");
         employeeDao.delete(id);
     }
 
     @Override
     public void update(Employee employee) {
-
+        Assert.notNull(employee.getId(),"id must not be null");
+        Assert.isTrue(employee.getId()>0,"id must greater than 0 ");
+        Assert.notNull(employee.getFirstName(),"First name must be not null");
+        Assert.notNull(employee.getLastName(),"Last Name must be not null");
+        Assert.isTrue(employee.getSalary()>=0,"salary must greater or equally than 0 ");
+        Assert.isTrue(new Date().after(employee.getDob()),"Day of Birth  must be up to today ");
+        employeeDao.update(employee);
     }
 }

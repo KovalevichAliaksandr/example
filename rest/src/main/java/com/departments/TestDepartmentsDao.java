@@ -6,7 +6,6 @@ import com.departments.model.Department;
 import com.departments.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,8 +15,8 @@ import java.util.List;
 /**
  * Created by alex on 7.2.17.
  */
-public class TestDepartment {
-    private static final Logger log= LoggerFactory.getLogger(TestDepartment.class);
+public class TestDepartmentsDao {
+    private static final Logger log= LoggerFactory.getLogger(TestDepartmentsDao.class);
 
 
     public static void testEmployeeDao(EmployeeDao employeeDao){
@@ -52,7 +51,7 @@ public class TestDepartment {
         department=departmentDao.findDepartmentById(1L);
         log.info("Find department by id= {} ",department);
         log.info("=====================================List all department ===========================================");
-        List <Department> employeeList=departmentDao.findAllDepartment();
+        List <Department> employeeList=departmentDao.findAllDepartments();
         log.info("List all departments = {} ",employeeList);
         log.info("=====================================Save  department ===========================================");
         Department department1=new Department();

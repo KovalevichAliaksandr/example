@@ -35,28 +35,16 @@
         <constructor-arg ref="employeeDao"/>
     </bean>
 
-    <!--<tx:annotation-driven transaction-manager="transactionManager" />-->
-    <!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
-        <!--<property name="entityManagerFactory" ref="emf" />-->
-    <!--</bean>-->
+    <bean id="departmentService" class="com.departments.service.DepartmentServiceImpl">
+        <constructor-arg ref="departmentDao"/>
+    </bean>
 
-    <!--<jpa:repositories base-package="edu.mvc" entity-manager-factory-ref="emf" transaction-manager-ref="transactionManager" />-->
-    <!--<bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
-        <!--<property name="dataSource" ref="dataSource"/>-->
-        <!--<property name="jpaVendorAdapter">-->
-            <!--<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>-->
-        <!--</property>-->
-        <!--<property name="packagesToScan" value="edu.mvc"/>-->
-        <!--<property name="jpaProperties">-->
-            <!--<props>-->
-                <!--<prop key="hibernate.dialect">${hibernate.dialect}</prop>-->
-                <!--<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>-->
-                <!--<prop key="hibernate.jdbc.fetch_size">${hibernate.jdbc.fetch_size}</prop>-->
-                <!--<prop key="hibernate.jdbc.fetch_depth">${hibernate.jdbc.fetch_depth}</prop>-->
-                <!--<prop key="hibernate.jdbc.batch_size">${hibernate.jdbc.batch_size}</prop>-->
-            <!--</props>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <context:component-scan base-package="com.departments"/>
 
 
 </beans>
