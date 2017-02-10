@@ -61,7 +61,8 @@ public class DepartmentController {
     @RequestMapping(value = "/updateDepartment/{id}",method = RequestMethod.PUT)
     public Department update (@RequestBody Department department, @PathVariable Long id){
         log.info("Update department {}" , department);
-        departmentService.save(department);
+        department.setId(id);
+        departmentService.update(department);
         log.info("Department updated successfully with info {}", department );
         return department;
     }

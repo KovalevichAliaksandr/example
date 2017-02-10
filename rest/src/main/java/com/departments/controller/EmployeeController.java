@@ -60,7 +60,8 @@ public class EmployeeController {
     @RequestMapping(value = "/updateEmployee/{id}",method = RequestMethod.PUT)
     public Employee update (@RequestBody Employee employee, @PathVariable Long id){
         log.info("Update employee {}" , employee);
-        employeeService.save(employee);
+        employee.setId(id);
+        employeeService.update(employee);
         log.info("Employee updated successfully with info {}", employee );
         return employee;
     }
