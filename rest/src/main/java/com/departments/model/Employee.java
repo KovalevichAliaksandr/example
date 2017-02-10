@@ -1,5 +1,7 @@
 package com.departments.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -22,6 +24,7 @@ public class Employee {
     private String lastName;
 
     @Past
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dob;
 
     @Min(value = 0,message="salary  should be  >=0 ")

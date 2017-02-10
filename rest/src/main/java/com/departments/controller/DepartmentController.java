@@ -7,9 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -30,51 +28,51 @@ public class DepartmentController {
     public Departments listData(){
         return new Departments((ArrayList<Department>) departmentService.findAllDepartments());
     }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-//    public Contact findContactById(@PathVariable Long id){
-//        return contactService.findById(id);
-//    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/",method = RequestMethod.POST)
-//    public Contact create (@RequestBody Contact contact){
-//        log.info("Create contact " , contact);
-//        contactService.save(contact);
-//        log.info("Contact create successfully with info{}", contact );
-//        return contact;
-//    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/createContacts",method = RequestMethod.POST)
-//    public Contacts createListContacts(@RequestBody Contacts  contacts){
-//        ArrayList<Contact> contactArrayList=contacts.getContacts();
-//        for (Contact contact:contactArrayList){
-//            log.info("Create contact " , contact);
-//            contactService.save(contact);
-//            log.info("Contact create successfully with info{}", contact );
-//        }
-//        return contacts;
-//
-//    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
-//    public Contact update (@RequestBody Contact contact, @PathVariable Long id){
-//        log.info("Update contact {}" , contact);
-//        contactService.save(contact);
-//        log.info("Contact updated successfully with info {}", contact );
-//        return contact;
-//    }
-//
-//    @ResponseBody
-//    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-//    public void delete(@PathVariable Long id){
-//        Contact contact=contactService.findById(id);
-//        log.info("Delete contact {}",contact);
-//        contactService.delete(contact);
-//        log.info("Delete contact successfully {}",contact);
-//    }
+
+    @ResponseBody
+    @RequestMapping(value = "/getDepartment/{id}",method = RequestMethod.GET)
+    public Department findContactById(@PathVariable Long id){
+        return departmentService.findDepartmentById(id);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/createDepartment",method = RequestMethod.POST)
+    public Department create (@RequestBody Department department){
+        log.info("Create department " , department);
+        departmentService.save(department);
+        log.info("Department create successfully with info{}", department );
+        return department;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/createDepartments",method = RequestMethod.POST)
+    public Departments departments(@RequestBody Departments  departments){
+        ArrayList<Department> departmentArrayList=departments.getDepartments();
+        for (Department department:departmentArrayList){
+            log.info("Create deparment " , department);
+            departmentService.save(department);
+            log.info("Department create successfully with info{}", department );
+        }
+        return departments;
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/updateDepartment/{id}",method = RequestMethod.PUT)
+    public Department update (@RequestBody Department department, @PathVariable Long id){
+        log.info("Update department {}" , department);
+        departmentService.save(department);
+        log.info("Department updated successfully with info {}", department );
+        return department;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/deleteDepartment/{id}",method = RequestMethod.DELETE)
+    public void delete(@PathVariable Long id){
+        Department department=departmentService.findDepartmentById(id);
+        log.info("Delete department {}",department);
+        departmentService.delete(id);
+        log.info("Delete department successfully {}",department);
+    }
 
 }

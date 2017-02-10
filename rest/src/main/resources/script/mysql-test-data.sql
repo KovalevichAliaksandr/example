@@ -3,6 +3,7 @@ insert INTO job.department(name_department) VALUE ('monetary');
 insert INTO job.department(name_department) VALUE ('retail');
 insert INTO job.department(name_department) VALUE ('cash');
 insert INTO job.department(name_department) VALUE ('automation');
+insert INTO job.department(name_department) VALUE ('accounting');
 
 SELECT * FROM job.department ORDER BY  id;
 INSERT INTO job.employee (first_name, last_name, dob, salary, id_department) VALUES ('Scott','Wolf','1944-05-18',5000,1);

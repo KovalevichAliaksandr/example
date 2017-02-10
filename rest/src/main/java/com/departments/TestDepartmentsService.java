@@ -72,7 +72,7 @@ public class TestDepartmentsService {
         log.info("Delete department with id = {} ",6L);
         log.info("=====================================Update  department ===========================================");
         Department department2=departmentService.findDepartmentById(1L);
-        department2.setNameDepartment("New department");
+        department2.setNameDepartment("New department2");
         departmentService.update(department2);
         log.info("Update department with id = {} ",1L);
     }
