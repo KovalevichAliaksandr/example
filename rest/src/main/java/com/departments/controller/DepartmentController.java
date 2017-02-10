@@ -49,12 +49,11 @@ public class DepartmentController {
     public Departments departments(@RequestBody Departments  departments){
         ArrayList<Department> departmentArrayList=departments.getDepartments();
         for (Department department:departmentArrayList){
-            log.info("Create deparment " , department);
+            log.info("Create departments " , department);
             departmentService.save(department);
             log.info("Department create successfully with info{}", department );
         }
         return departments;
-
     }
 
     @ResponseBody
