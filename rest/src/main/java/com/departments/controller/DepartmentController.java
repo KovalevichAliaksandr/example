@@ -30,7 +30,7 @@ public class DepartmentController {
     public Departments listData(){
         return new Departments((ArrayList<Department>) departmentService.findAllDepartments());
     }
-
+//
 //    @ResponseBody
 //    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
 //    public Contact findContactById(@PathVariable Long id){

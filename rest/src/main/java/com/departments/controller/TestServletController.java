@@ -11,6 +11,8 @@ import java.io.Writer;
  * Created by alex on 9.2.17.
  */
 public class TestServletController extends HttpServlet {
+    @Override
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter printWriter=response.getWriter();
         printWriter.println( "Servlet write");

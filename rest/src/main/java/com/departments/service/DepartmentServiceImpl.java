@@ -32,6 +32,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public Department findDepartmentById(Long id) {
         Assert.notNull(id,"id must not be null");
         Assert.isTrue(id>0,"id must greater than 0 ");
@@ -39,6 +40,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Department> findAllDepartments() {
         return departmentDao.findAllDepartments();
     }
