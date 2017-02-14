@@ -3,6 +3,7 @@ package com.departments;
 import com.departments.dao.DepartmentDao;
 import com.departments.dao.EmployeeDao;
 import com.departments.model.Department;
+import com.departments.model.DepartmentsWithAvgSalary;
 import com.departments.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,6 @@ import java.util.List;
  */
 public class TestDepartmentsDao {
     private static final Logger log= LoggerFactory.getLogger(TestDepartmentsDao.class);
-
 
 
     public static void testEmployeeDao(EmployeeDao employeeDao){
@@ -48,7 +48,7 @@ public class TestDepartmentsDao {
     }
     public static void testDepartmentDao(DepartmentDao departmentDao){
         Department department;
-        log.info("=====================================Employee by id ===========================================");
+        log.info("=====================================department by id ===========================================");
         department=departmentDao.findDepartmentById(1L);
         log.info("Find department by id= {} ",department);
         log.info("=====================================List all department ===========================================");
@@ -66,8 +66,10 @@ public class TestDepartmentsDao {
         department2.setNameDepartment("New department2");
         departmentDao.update(department2);
         log.info("Update department with id = {} ",1L);
+        log.info("=====================================Departments With Avg salary   ===========================================");
+        List<DepartmentsWithAvgSalary> departmentsWithAvgSalaryList=departmentDao.findDepartmentsWithAvgSalary();
+        log.info("Departments With Avg salary= {} ",departmentsWithAvgSalaryList);
     }
-
     public static void main(String[] args) {
 
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("classpath:spring/data-source-mysql.xml");

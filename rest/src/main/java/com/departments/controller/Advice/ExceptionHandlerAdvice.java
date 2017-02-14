@@ -18,14 +18,14 @@ public class ExceptionHandlerAdvice {
 
     private static final Logger log  = LoggerFactory.getLogger(ExceptionHandlerAdvice.class);
 
-    @ExceptionHandler(Exception.class)
-    public ModelAndView exception(Exception e) {
-        log.debug("Handling exception: " + e.getLocalizedMessage());
-        ModelAndView mav = new ModelAndView("exception");
-        mav.addObject("name", e.getClass().getSimpleName());
-        mav.addObject("message", e.getMessage());
-        return mav;
-    }
+//    @ExceptionHandler(Exception.class)
+//    public ModelAndView exception(Exception e) {
+//        log.debug("Handling exception: " + e.getLocalizedMessage());
+//        ModelAndView mav = new ModelAndView("exception");
+//        mav.addObject("name", e.getClass().getSimpleName());
+//        mav.addObject("message", e.getMessage());
+//        return mav;
+//    }
 //    !!! for exception.jsp
 //    <html>
 //<head>

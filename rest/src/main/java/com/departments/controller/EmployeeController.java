@@ -37,20 +37,20 @@ public class EmployeeController {
     @ResponseBody
     @RequestMapping(value = "/createEmployee",method = RequestMethod.POST)
     public Employee create (@RequestBody Employee employee){
-        log.info("Create employee " , employee);
+        log.debug("Create employee " , employee);
         employeeService.save(employee);
-        log.info("Employee create successfully with info{}", employee );
+        log.debug("Employee create successfully with info{}", employee );
         return employee;
     }
 
     @ResponseBody
     @RequestMapping(value = "/createEmployees",method = RequestMethod.POST)
-    public Employees employees(@RequestBody Employees  employees){
-        ArrayList<Employee> employeeArrayList=employees.getEmployees();
+    public Employees employees(@RequestBody Employees employees){
+        ArrayList<Employee> employeeArrayList= employees.getEmployees();
         for (Employee employee:employeeArrayList){
-            log.info("Create deparment " , employee);
+            log.debug("Create deparment " , employee);
             employeeService.save(employee);
-            log.info("Employee create successfully with info{}", employee );
+            log.debug("Employee create successfully with info{}", employee );
         }
         return employees;
 
@@ -59,10 +59,10 @@ public class EmployeeController {
     @ResponseBody
     @RequestMapping(value = "/updateEmployee/{id}",method = RequestMethod.PUT)
     public Employee update (@RequestBody Employee employee, @PathVariable Long id){
-        log.info("Update employee {}" , employee);
+        log.debug("Update employee {}" , employee);
         employee.setId(id);
         employeeService.update(employee);
-        log.info("Employee updated successfully with info {}", employee );
+        log.debug("Employee updated successfully with info {}", employee );
         return employee;
     }
 
@@ -70,9 +70,9 @@ public class EmployeeController {
     @RequestMapping(value = "/deleteEmployee/{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Long id){
         Employee employee=employeeService.findEmployeeById(id);
-        log.info("Delete employee {}",employee);
+        log.debug("Delete employee {}",employee);
         employeeService.delete(id);
-        log.info("Delete employee successfully {}",employee);
+        log.debug("Delete employee successfully {}",employee);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.departments.dao;
 
 import com.departments.model.Department;
+import com.departments.model.DepartmentsWithAvgSalary;
 import com.departments.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +36,8 @@ public class DepartmentDaoImpl implements DepartmentDao,InitializingBean {
     private static final String SQL_SAVE_DEPARTMENT="INSERT into department(name_department) VALUES (:name_department)";
     private static final String SQL_UPDATE_DEPARTMENT="UPDATE department SET name_department=:name_department WHERE id=:id ";
     private static final String SQL_DELETE_DEPARTMENT="DELETE FROM  department WHERE id =:id";
+    private static final String SQL_GET_DEPARTMENTS_WITH_AVG_SALARY="SELECT department.id,department.name_department,avg(salary) as avg_salary" +
+            " FROM department LEFT JOIN employee on (department.id=employee.id_department)GROUP BY department.id";
 
     public DepartmentDaoImpl(DataSource dataSource) {
         this.dataSource=dataSource;
@@ -57,7 +60,7 @@ public class DepartmentDaoImpl implements DepartmentDao,InitializingBean {
     }
     @Override
     public Department findDepartmentById(Long id) {
-        log.info("Find contact by id={} ",id);
+        log.debug("Find contact by id={} ",id);
         Map<String,Object> namedParameters=new HashMap<>();
         namedParameters.put("id",id);
         return namedParameterJdbcTemplate.queryForObject(SQL_FIND_DEPARTMENT_BY_ID,namedParameters,new DepartmentRowMapper());
@@ -65,13 +68,14 @@ public class DepartmentDaoImpl implements DepartmentDao,InitializingBean {
 
     @Override
     public List<Department> findAllDepartments() {
-        log.info("Find all contacts ");
+        log.debug("Find all contacts ");
         return namedParameterJdbcTemplate.query(SQL_FIND_ALL_DEPARTMENTS,new DepartmentRowMapper());
     }
 
+
     @Override
     public Long save(Department department) {
-        log.info("Save new employee ={} ",department);
+        log.debug("Save new employee ={} ",department);
         KeyHolder keyHolder=new GeneratedKeyHolder();
         namedParameterJdbcTemplate.update(SQL_SAVE_DEPARTMENT, mapSqlParameterSource(department),keyHolder,new String[]{"id"});
         Long id=keyHolder.getKey().longValue();
@@ -81,7 +85,7 @@ public class DepartmentDaoImpl implements DepartmentDao,InitializingBean {
 
     @Override
     public void delete(Long id) {
-        log.info("Delete  contact with id ={} ",id);
+        log.debug("Delete  department with id ={} ",id);
         Map<String,Object> parameters=new HashMap<>();
         parameters.put("id",id);
         namedParameterJdbcTemplate.update(SQL_DELETE_DEPARTMENT,parameters);
@@ -89,8 +93,24 @@ public class DepartmentDaoImpl implements DepartmentDao,InitializingBean {
 
     @Override
     public void update(Department department) {
-        log.info("Update  contact ={} ",department);
+        log.debug("Update  department ={} ",department);
         namedParameterJdbcTemplate.update(SQL_UPDATE_DEPARTMENT,mapSqlParameterSource(department));
+    }
+    @Override
+    public List<DepartmentsWithAvgSalary> findDepartmentsWithAvgSalary(){
+        log.debug("select departments with average salary  ");
+        return namedParameterJdbcTemplate.query(SQL_GET_DEPARTMENTS_WITH_AVG_SALARY, new DepartmentWithSAvgSalaryRowMapper());
+    }
+
+    private static final class DepartmentWithSAvgSalaryRowMapper implements RowMapper<DepartmentsWithAvgSalary> {
+        @Override
+        public DepartmentsWithAvgSalary mapRow(ResultSet resultSet, int i) throws SQLException {
+            DepartmentsWithAvgSalary departmentsWithAvgSalary=new DepartmentsWithAvgSalary();
+            departmentsWithAvgSalary.setId(resultSet.getLong("id"));
+            departmentsWithAvgSalary.setName(resultSet.getString("name_department"));
+            departmentsWithAvgSalary.setAvgSalary(resultSet.getInt("avg_salary"));
+            return departmentsWithAvgSalary;
+        }
     }
 
     private static final class DepartmentRowMapper implements RowMapper<Department> {
@@ -109,6 +129,7 @@ public class DepartmentDaoImpl implements DepartmentDao,InitializingBean {
         parameterSource.addValue("name_department",department.getNameDepartment());
         return parameterSource;
     }
+
 }
 
 

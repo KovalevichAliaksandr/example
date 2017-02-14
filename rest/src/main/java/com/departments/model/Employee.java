@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Created by alex on 7.2.17.
@@ -91,5 +92,23 @@ public class Employee {
                 ", salary=" + salary +
                 ", idDepartment=" + idDepartment +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id) &&
+                Objects.equals(firstName, employee.firstName) &&
+                Objects.equals(lastName, employee.lastName) &&
+                Objects.equals(dob, employee.dob) &&
+                Objects.equals(salary, employee.salary) &&
+                Objects.equals(idDepartment, employee.idDepartment);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, dob, salary, idDepartment);
     }
 }

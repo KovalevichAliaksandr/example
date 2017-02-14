@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Employees {
     private ArrayList<Employee> employees;
+    private Long totalEmployee;
 
     public Employees() {
     }
@@ -15,12 +16,19 @@ public class Employees {
         this.employees=employees;
     }
 
-
     public ArrayList<Employee> getEmployees() {
         return employees;
     }
 
     public void setEmployees(ArrayList<Employee> employees) {
         this.employees = employees;
+    }
+
+    public Long getTotalEmployee(){
+        return totalEmployee;
+    }
+
+    public void setTotalEmployee(Long totalEmployee){
+        this.totalEmployee=totalEmployee;
     }
 }

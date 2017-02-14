@@ -3,6 +3,7 @@ package com.departments.service;
 import com.departments.dao.DepartmentDao;
 import com.departments.dao.EmployeeDao;
 import com.departments.model.Department;
+import com.departments.model.DepartmentsWithAvgSalary;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<Department> findAllDepartments() {
         return departmentDao.findAllDepartments();
     }
+
+    @Override
+    public List<DepartmentsWithAvgSalary> findDepartmentsWithAvgSalary() {
+        return departmentDao.findDepartmentsWithAvgSalary();
+    }
+
 
     @Override
     public Long save(Department department) {

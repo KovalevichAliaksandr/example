@@ -3,6 +3,7 @@ package com.departments;
 import com.departments.dao.DepartmentDao;
 import com.departments.dao.EmployeeDao;
 import com.departments.model.Department;
+import com.departments.model.DepartmentsWithAvgSalary;
 import com.departments.model.Employee;
 import com.departments.service.DepartmentService;
 import com.departments.service.EmployeeService;
@@ -61,8 +62,8 @@ public class TestDepartmentsService {
         department=departmentService.findDepartmentById(1L);
         log.info("Find department by id= {} ",department);
         log.info("=====================================List all department ===========================================");
-        List <Department> employeeList=departmentService.findAllDepartments();
-        log.info("List all departments = {} ",employeeList);
+        List <Department> departmentList=departmentService.findAllDepartments();
+        log.info("List all departments = {} ",departmentList);
         log.info("=====================================Save  department ===========================================");
         Department department1=new Department();
         department1.setNameDepartment("New department");
@@ -75,6 +76,9 @@ public class TestDepartmentsService {
         department2.setNameDepartment("New department2");
         departmentService.update(department2);
         log.info("Update department with id = {} ",1L);
+        log.info("=====================================Find all department wit avg salary ===========================================");
+        List <DepartmentsWithAvgSalary> departmentsWithAvgSalaryList=departmentService.findDepartmentsWithAvgSalary();
+        log.info("List all departments with avg salary = {} ",departmentsWithAvgSalaryList);
     }
 
     public static void main(String[] args) throws ParseException {
