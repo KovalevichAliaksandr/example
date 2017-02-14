@@ -19,6 +19,7 @@ public class TestDepartmentsDao {
     private static final Logger log= LoggerFactory.getLogger(TestDepartmentsDao.class);
 
 
+
     public static void testEmployeeDao(EmployeeDao employeeDao){
         Employee employee;
         log.info("=====================================Employee by id ===========================================");
