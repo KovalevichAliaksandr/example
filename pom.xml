@@ -4,17 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>department</groupId>
-    <artifactId>department</artifactId>
+    <groupId>com.departments</groupId>
+    <artifactId>departments</artifactId>
+    <name>department</name>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
 
 
         <module>rest</module>
+        <module>web</module>
+
     </modules>
 
-    <name>Department</name>
+
     <properties>
         <maven.test.skip>false</maven.test.skip>
         <source-code.version>1.8</source-code.version>
