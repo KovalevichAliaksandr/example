@@ -17,11 +17,17 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/web/WEB-INF/spring/root-context.xml</file>
-          <file>file://$MODULE_DIR$/webapp/WEB-INF/spring/servlet/servlet-context.xml</file>
-        </fileset>
         <fileset id="web application context" name="MVC application context" removed="true" />
+        <fileset id="web rest servlet context" name="MVC rest servlet context" removed="true">
+          <dependency>web application context</dependency>
+          <file>file://$MODULE_DIR$/webapp/WEB-INF/spring/rest/rest-context.xml</file>
+        </fileset>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/../rest/src/main/resources/spring/data-source-mysql.xml</file>
+          <file>file://$MODULE_DIR$/webapp/WEB-INF/spring/rest/rest-context.xml</file>
+          <file>file://$MODULE_DIR$/webapp/WEB-INF/spring/root-context.xml</file>
+          <file>file://$MODULE_DIR$/webapp/WEB-INF/spring/appServlet/servlet-context.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
