@@ -13,7 +13,8 @@
 
 
         <module>rest</module>
-        <module>web</module>
+        <module>web-departments</module>
+
 
     </modules>
 
