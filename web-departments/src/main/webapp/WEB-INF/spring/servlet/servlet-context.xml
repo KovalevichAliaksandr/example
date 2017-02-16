@@ -16,6 +16,11 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
 
+
+
+    <context:component-scan base-package="com.departments"/>
+    <beans:import resource="classpath:spring/data-source-mysql.xml"/>
+
     <!--Дескриптор <annotation-driven> включает поддержку конфигурирования посредством аннотаций для контроллеров Spring MVC,-->
     <!--а также поддержку преобразования типов и форматирования Spring.-->
     <!--Кроме того, этим же дескриптором включается поддержка проверки достоверности бинов JSR-349-->
@@ -45,7 +50,9 @@
     <!--<mvc:resources mapping="/images/**" location="/images/" />-->
     <default-servlet-handler/>
 
-    <context:component-scan base-package="com.departments"/>
+
+
+
 
     <!--Для интерфейса ViewResolver  будем использовать класс InternalResourceViewResolver -->
     <!--в качестве реализации. Однако мы   изменим суффикс на .jspx.-->
@@ -102,10 +109,10 @@
     <!--и application* .properties в папке /WEB-INF/i18n) для поддержки интернационализации. Свойство fallbackToSystemLocale-->
     <!--указывает Spring МVС, нужно ли возвращаться к локали системы, в которой выполняется приложение, если специфический   -->
     <!--пакет ресурсов для клиентской локали не найден.-->
-    <beans:bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-                id="messageSource"
-                p:basenames="WEB-INF/i18n/application,WEB-INF/i18n/messages"
-                p:fallbackToSystemLocale="false"/>
+    <!--<beans:bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource"-->
+                <!--id="messageSource"-->
+                <!--p:basenames="WEB-INF/i18n/application,WEB-INF/i18n/messages"-->
+                <!--p:fallbackToSystemLocale="false"/>-->
 
 
     <!--Этот класс поддерживает хранение и извлечение параметров локали из сооkiе-набора  пользовательского браузера-->
@@ -113,18 +120,18 @@
     <!--для сеанса пользователя. Если вы хотите удерживать сооkiе-набор на протяжении более длительного периода времени,-->
     <!--в определении бина localeResolver  необходимо установить свойство cookieMaxAge, которое унаследовано-->
     <!--от класса org. springframework.web.util.CookieGenerator.-->
-    <beans:bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
-                id="localeResolver"
-                p:cookieName="locale"/>
+    <!--<beans:bean class="org.springframework.web.servlet.i18n.CookieLocaleResolver"-->
+                <!--id="localeResolver"-->
+                <!--p:cookieName="locale"/>-->
 
 
     <!--Для поддержки JSR-349 определяется бин validator с классом Local ValidatorFactoryBean validationMessageSource для ссылки-->
     <!--на определенный бин messageSource,  который обеспечивает поиск при проверке JSR-349 сообщений по кодам из бина  messageSource.-->
-    <beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        <beans:property name="validationMessageSource" ref="messageSource"/>
-    </beans:bean>
+    <!--<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
+        <!--<beans:property name="validationMessageSource" ref="messageSource"/>-->
+    <!--</beans:bean>-->
 
     <!--в дескрипторе <annotation-driven> атрибут validator   явно ссылается на ранее определенный бин validator-->
-    <mvc:annotation-driven validator="validator"/>
+    <!--<mvc:annotation-driven validator="validator"/>-->
 
 </beans:beans>
