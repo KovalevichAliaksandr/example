@@ -15,6 +15,7 @@ To change this template use File | Settings | File Templates.
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="no"/>
 
+
     <!--<spring:message code="label_contact_info" var="labelContactInfo"/>-->
     <!--<spring:message code="label_contact_first_name" var="labelContactFirstName"/>-->
     <!--<spring:message code="label_contact_last_name" var="labelContactLastName"/>-->
@@ -28,6 +29,7 @@ To change this template use File | Settings | File Templates.
 
 
     <!--<h1>${labelContactList}</h1>-->
+    <!--<c:out value="${}"-->
     <!--<c:if test = "$(not empty listDepartments}">-->
         <table>
             <thead>
@@ -38,9 +40,9 @@ To change this template use File | Settings | File Templates.
             </tr>
             </thead>
             <tbody>
-            <c:forEach items = "$(listDepartments}" var = "department">
+            <c:forEach items = "${listDepartments}" var = "department">
                 <tr>
-                    <td>${department.name}</td>
+                    <td>${department.nameDepartment}</td>
                     <td>${department.id}</td>
                     <td>${department.id}</td>
                 </tr>
