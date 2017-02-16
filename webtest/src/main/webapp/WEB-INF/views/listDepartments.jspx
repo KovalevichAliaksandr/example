@@ -1,0 +1,52 @@
+<!--
+Created by IntelliJ IDEA.
+User: ALex
+Date: 26.11.2016
+Time: 17:31
+To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:joda="http://www.joda.org/joda/time/tags"
+          xmlns:spring="http://www.springframework.org/tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="no"/>
+
+    <!--<spring:message code="label_contact_info" var="labelContactInfo"/>-->
+    <!--<spring:message code="label_contact_first_name" var="labelContactFirstName"/>-->
+    <!--<spring:message code="label_contact_last_name" var="labelContactLastName"/>-->
+    <!--<spring:message code="label_contact_birth_date" var="labelContactBirthDate"/>-->
+    <!--<spring:message code="label_contact_description" var="labelContactDescription"/>-->
+    <!--<spring:message code="label_contact_update" var="labelContactUpdate"/>-->
+    <!--<spring:message code="label_contact_delete" var="labelContactDelete"/>-->
+    <!--<spring:message code="date_format_pattern" var="dateFormatPattern"/>-->
+    <!--<spring:url value="/contacts" var="editContactUrl"/>-->
+    <!--<spring:url value="/contacts" var="deleteContactUrl"/>-->
+
+
+    <!--<h1>${labelContactList}</h1>-->
+    <!--<c:if test = "$(not empty listDepartments}">-->
+        <table>
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birth Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items = "$(listDepartments}" var = "department">
+                <tr>
+                    <td>${department.name}</td>
+                    <td>${department.id}</td>
+                    <td>${department.id}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    <!--</c:if>-->
+
+</jsp:root>

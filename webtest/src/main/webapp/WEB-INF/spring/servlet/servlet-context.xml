@@ -15,7 +15,7 @@
             <value>/WEB-INF/views/</value>
         </property>
         <property name="suffix">
-            <value>.jsp</value>
+            <value>.jspx</value>
         </property>
     </bean>
 </beans>

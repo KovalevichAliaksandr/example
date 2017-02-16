@@ -52,10 +52,14 @@ public class DepartmentController {
 ////        В результате Spring МVС выберет для представления файл /WEB-INF/views/contacts/list.jspx.
 //    }
 
-    @ResponseBody
+
     @RequestMapping(value = "/listDepartments",method = RequestMethod.GET)
-    public Departments listDepartments(){
-        return new Departments((ArrayList<Department>) departmentService.findAllDepartments());
+    public String listDepartments(Model model){
+        log.info("Listing departments");
+        List<Department> listDepartments=departmentService.findAllDepartments();
+        model.addAttribute("listDepartments",listDepartments);
+        log.info("No. of departments = {}",listDepartments.size());
+        return "listDepartments";
     }
 
     @ResponseBody

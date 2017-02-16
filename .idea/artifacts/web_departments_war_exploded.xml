@@ -64,6 +64,9 @@
           <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.4.33" />
           <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy-agent:1.4.33" />
           <element id="library" level="project" name="Maven: org.objenesis:objenesis:2.4" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.9.7" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time-jsptags:1.1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
