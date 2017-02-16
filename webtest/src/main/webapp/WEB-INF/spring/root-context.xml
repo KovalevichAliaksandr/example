@@ -7,33 +7,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-<!--В ряде случаев вся настройка подобного-->
-    <!--рода производится автоматически (например, в веб-приложении экземпляр-->
-    <!--ApplicationContext будет загружаться веб-контейнером во время начальной загрузки-->
-    <!--приложения с помощью класса ContextLoaderListener, предоставляемого-->
-    <!--Spring, который объявлен в файле дескрипторов web. xml). Но во многих случаях-->
-    <!--&lt;!&ndash;кодировать настройку приходится самостоятельно. -->
-
-    <!--<import resource="classpath:"/>-->
-    <!--<import resource="rest-context.xml"/>-->
-
-
-    <!--<import resource="WEB-INF/spring/rest/rest-context.xml"/>-->
-
-
-    <!--<import resource="classpath:spring/data-source-mysql.xml"/>-->
-    <!--<context:component-scan base-package="com.departments"/>-->
-<!---->
-
-    <!--<import resource="classpath:spring/data-source-mysql.xml"/>-->
-
-
-    <!--<import resource="/WEB-INF/spring/servlet/servlet-context.xml"/>-->
-    <!--<import resource="rest-context.xml"/>-->
     <context:component-scan base-package="com.departments"/>
     <import resource="classpath:spring/data-source-mysql.xml"/>
     <import resource="servlet/servlet-context.xml"/>
-    <!--<mvc:annotation-driven />-->
 
 
 </beans>
