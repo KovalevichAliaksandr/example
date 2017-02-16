@@ -8,7 +8,7 @@
 
     <!--<servlet>-->
         <!--<servlet-name>testFirst</servlet-name>-->
-        <!--<servlet-class>com.departmentsDto.controller.TestServletController</servlet-class>-->
+        <!--<servlet-class>com.departmentsDto.TestServletController</servlet-class>-->
     <!--</servlet>-->
     <!--<servlet-mapping>-->
         <!--<servlet-name>testFirst</servlet-name>-->

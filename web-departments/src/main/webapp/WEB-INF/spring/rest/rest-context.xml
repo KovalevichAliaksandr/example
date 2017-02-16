@@ -10,7 +10,7 @@
 
     <mvc:annotation-driven/>
     <!--<import resource="classpath:spring/data-source-mysql.xml"/>-->
-    <!--<import resource="/WEB-INF/spring/servlet/servlet-context.xml"/>-->
+    <!--<import resource="/WEB-INF/spring/servlet/servlet-context2.xml"/>-->
 
 
     <bean id="xmlMessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter">

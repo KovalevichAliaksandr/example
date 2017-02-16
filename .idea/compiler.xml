@@ -24,6 +24,7 @@
         <processorPath useClasspath="true" />
         <module name="rest" />
         <module name="web-departments" />
+        <module name="webtest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -31,6 +32,7 @@
       <module name="rest" target="1.8" />
       <module name="web" target="1.8" />
       <module name="web-departments" target="1.8" />
+      <module name="webtest" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

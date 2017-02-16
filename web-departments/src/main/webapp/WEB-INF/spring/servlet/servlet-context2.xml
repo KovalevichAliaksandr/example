@@ -50,10 +50,6 @@
     <!--<mvc:resources mapping="/images/**" location="/images/" />-->
     <default-servlet-handler/>
 
-
-
-
-
     <!--Для интерфейса ViewResolver  будем использовать класс InternalResourceViewResolver -->
     <!--в качестве реализации. Однако мы   изменим суффикс на .jspx.-->
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
