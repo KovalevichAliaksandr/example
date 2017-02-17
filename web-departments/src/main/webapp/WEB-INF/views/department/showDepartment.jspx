@@ -1,0 +1,58 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: alex
+  Date: 17.2.17
+  Time: 11.40
+  To change this template use File | Settings | File Templates.
+-->
+<!--
+  Created by IntelliJ IDEA.
+  User: ALex
+  Date: 26.11.2016
+  Time: 17:31
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:spring="http://www.springframework.org/tags"
+          version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="no"/>
+
+    <spring:message code="label_department" var="labelDepartment"/>
+    <spring:message code="label_department_id" var="labelDepartmentId"/>
+    <spring:message code="label_department_name" var="labelDepartmentName"/>
+    <spring:message code="label_department_update" var="labelDepartmentUpdate"/>
+    <spring:message code="label_department_delete" var="labelDepartmentDelete"/>
+    <spring:message code="date_format_pattern" var="dateFormatPattern"/>
+    <spring:url value="/departments/deleteDepartment" var="editDepartmentUrl"/>
+    <spring:url value="/departments/deleteDepartment}" var="deleteDepartmentUrl"/>
+
+
+    <h1>${labelDepartment}</h1>
+
+    <c:if test="${not empty messsage}">
+        <div id="message" class="${message.type}">${message.message}</div>
+    </c:if>
+    <div class="container" style="width: 600px;">
+        <table border="4">
+            <tr>
+                <td>${labelDepartmentId}</td>
+                <td>${department.id}</td>
+            </tr>
+            <tr>
+                <td>${labelDepartmentName}</td>
+                <td>${department.nameDepartment}</td>
+            </tr>
+
+        </table>
+
+    </div>
+    <br/>
+    <a href="${editDepartmentUrl}/${department.id}?formUpdate"> ${labelDepartmentUpdate}</a>
+    <a href="${deleteDepartmentUrl}/${department.id}?formDelete"> ${labelDepartmentDelete }</a>
+
+
+</jsp:root>

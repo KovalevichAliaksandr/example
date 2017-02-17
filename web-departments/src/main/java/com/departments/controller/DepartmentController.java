@@ -7,15 +7,16 @@ import com.departments.service.DepartmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * Created by alex on 9.2.17.
@@ -29,15 +30,8 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(Locale locale, Model model) {
-        log.debug("Client  called  controller home  - '/' ");
-        Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-        String formattedDate = dateFormat.format(date);
-        model.addAttribute("serverTime", formattedDate);
-        return "home";
-    }
+
+
 
 //    @RequestMapping(method = RequestMethod.GET)
 //    public String  list(Model uiModel){
@@ -51,30 +45,44 @@ public class DepartmentController {
 ////        InternalResourceViewResolver, а файл имеет префикс /WEB-INF/views/ и суффикс .jspx.
 ////        В результате Spring МVС выберет для представления файл /WEB-INF/views/contacts/list.jspx.
 //    }
+//
 
-    @ResponseBody
-    @RequestMapping(value = "/listDepartments",method = RequestMethod.GET)
-    public Departments listDepartments(){
-        return new Departments((ArrayList<Department>) departmentService.findAllDepartments());
-    }
 
-    @ResponseBody
     @RequestMapping(value = "/listDepartmentsWitAvgSalary",method = RequestMethod.GET)
-    public List<DepartmentsWithAvgSalary> listDepartmentsWitAvgSalary(){
-        return  departmentService.findDepartmentsWithAvgSalary();
+    public String listDepartmentsWitAvgSalary(Model model){
+        log.debug("start listDepartmentsWitAvgSalary");
+        List<DepartmentsWithAvgSalary> listDepartmentsWitAvgSalary=departmentService.findDepartmentsWithAvgSalary();
+        model.addAttribute("listDepartmentsWitAvgSalary",listDepartmentsWitAvgSalary);
+        log.debug("size listDepartmentsWitAvgSalary is ={}",listDepartmentsWitAvgSalary.size());
+        return  "department/listDepartmentsWitAvgSalary";
     }
 
-    @ResponseBody
+
+    @RequestMapping(value = "/listDepartments",method = RequestMethod.GET)
+    public String listDepartments(Model model){
+        log.debug("start /listDepartments");
+        List<Department> listDepartments=departmentService.findAllDepartments();
+        model.addAttribute("listDepartments",listDepartments);
+        log.debug("size listDepartments is ={}",listDepartments.size());
+        return "department/listDepartments";
+    }
+
+
     @RequestMapping(value = "/getDepartment/{id}",method = RequestMethod.GET)
-    public Department findContactById(@PathVariable Long id){
-        return departmentService.findDepartmentById(id);
+    public String findContactById(@PathVariable Long id,Model model){
+        log.debug("show department/{}",id);
+        Department department=departmentService.findDepartmentById(id);
+        model.addAttribute("department",department);
+        log.debug("fetch department  ={}",department);
+        return "department/showDepartment";
     }
 
     @ResponseBody
     @RequestMapping(value = "/createDepartment",method = RequestMethod.POST)
-    public Department create (@RequestBody Department department){
+    public Department create (@RequestBody Department department,Model model){
         log.debug("Create department " , department);
         departmentService.save(department);
+        model.addAttribute("listDepartments",department);
         log.debug("Department create successfully with info{}", department );
         return department;
     }

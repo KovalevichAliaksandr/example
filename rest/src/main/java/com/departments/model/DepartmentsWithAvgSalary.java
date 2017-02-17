@@ -8,8 +8,8 @@ import java.util.Objects;
  */
 public class DepartmentsWithAvgSalary implements Serializable {
     private Long id;
-    private String name;
-    private Integer AvgSalary;
+    private String nameDepartment;
+    private Integer avgSalary;
 
     public DepartmentsWithAvgSalary() {
     }
@@ -22,28 +22,28 @@ public class DepartmentsWithAvgSalary implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameDepartment() {
+        return nameDepartment;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameDepartment(String nameDepartment) {
+        this.nameDepartment = nameDepartment;
     }
 
     public Integer getAvgSalary() {
-        return AvgSalary;
+        return avgSalary;
     }
 
     public void setAvgSalary(Integer avgSalary) {
-        AvgSalary = avgSalary;
+        this.avgSalary = avgSalary;
     }
 
     @Override
     public String toString() {
         return "DepartmentsWithAvgSalary{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", AvgSalary=" + AvgSalary +
+                ", name='" + nameDepartment + '\'' +
+                ", avgSalary=" + avgSalary +
                 '}';
     }
 
@@ -53,12 +53,12 @@ public class DepartmentsWithAvgSalary implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         DepartmentsWithAvgSalary that = (DepartmentsWithAvgSalary) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(AvgSalary, that.AvgSalary);
+                Objects.equals(nameDepartment, that.nameDepartment) &&
+                Objects.equals(avgSalary, that.avgSalary);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, AvgSalary);
+        return Objects.hash(id, nameDepartment, avgSalary);
     }
 }

@@ -107,7 +107,7 @@ public class DepartmentDaoImpl implements DepartmentDao,InitializingBean {
         public DepartmentsWithAvgSalary mapRow(ResultSet resultSet, int i) throws SQLException {
             DepartmentsWithAvgSalary departmentsWithAvgSalary=new DepartmentsWithAvgSalary();
             departmentsWithAvgSalary.setId(resultSet.getLong("id"));
-            departmentsWithAvgSalary.setName(resultSet.getString("name_department"));
+            departmentsWithAvgSalary.setNameDepartment(resultSet.getString("name_department"));
             departmentsWithAvgSalary.setAvgSalary(resultSet.getInt("avg_salary"));
             return departmentsWithAvgSalary;
         }
