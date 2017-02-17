@@ -30,24 +30,6 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
-
-
-
-//    @RequestMapping(method = RequestMethod.GET)
-//    public String  list(Model uiModel){
-//        log.info("Listing contacts");
-//        List<Contact> contacts=contactService.findAllContacts();
-//        uiModel.addAttribute("contacts",contacts);
-//        log.info("No. of contacts = {}",contacts.size());
-////            возвращаем имя представления , в данном случае /WEB-INF/views/contacts/list.jspx
-//        return "contacts/list";
-////        В конфигурации сервлета диспетчера в качестве распознавателя представлений указан
-////        InternalResourceViewResolver, а файл имеет префикс /WEB-INF/views/ и суффикс .jspx.
-////        В результате Spring МVС выберет для представления файл /WEB-INF/views/contacts/list.jspx.
-//    }
-//
-
-
     @RequestMapping(value = "/listDepartmentsWitAvgSalary",method = RequestMethod.GET)
     public String listDepartmentsWitAvgSalary(Model model){
         log.debug("start listDepartmentsWitAvgSalary");
@@ -56,7 +38,6 @@ public class DepartmentController {
         log.debug("size listDepartmentsWitAvgSalary is ={}",listDepartmentsWitAvgSalary.size());
         return  "department/listDepartmentsWitAvgSalary";
     }
-
 
     @RequestMapping(value = "/listDepartments",method = RequestMethod.GET)
     public String listDepartments(Model model){
@@ -77,14 +58,14 @@ public class DepartmentController {
         return "department/showDepartment";
     }
 
-    @ResponseBody
+
     @RequestMapping(value = "/createDepartment",method = RequestMethod.POST)
-    public Department create (@RequestBody Department department,Model model){
+    public String create (@RequestBody Department department,Model model){
         log.debug("Create department " , department);
         departmentService.save(department);
-        model.addAttribute("listDepartments",department);
+        model.addAttribute("department",department);
         log.debug("Department create successfully with info{}", department );
-        return department;
+        return "department/createDepartment";
     }
 
     @ResponseBody
@@ -92,7 +73,7 @@ public class DepartmentController {
     public Departments departments(@RequestBody Departments departments){
         ArrayList<Department> departmentArrayList= departments.getDepartments();
         for (Department department:departmentArrayList){
-            log.debug("Create departmentsDto " , department);
+            log.debug("Create departments " , department);
             departmentService.save(department);
             log.debug("Department create successfully with info{}", department );
         }

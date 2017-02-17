@@ -5,7 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <!-- Root Context: defines shared resources visible to all other web components -->
     <context:component-scan base-package="com.departments"/>
     <import resource="classpath:spring/data-source-mysql.xml"/>
     <import resource="servlet/servlet-context.xml"/>

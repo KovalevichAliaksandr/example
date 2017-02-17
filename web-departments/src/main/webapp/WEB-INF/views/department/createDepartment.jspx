@@ -1,0 +1,24 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: alex
+  Date: 17.2.17
+  Time: 15.36
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" xmlns="http://www.w3.org/1999/xhtml" version="2.0">
+
+    <div class="container" style="width: 600px;">
+        <table border="4">
+            <tr>
+                <td>${labelDepartmentId}</td>
+                <td>${department.id}</td>
+            </tr>
+            <tr>
+                <td>${labelDepartmentName}</td>
+                <td>${department.nameDepartment}</td>
+            </tr>
+
+        </table>
+
+    </div>
+</jsp:root>

@@ -43,18 +43,19 @@ public class EmployeeController {
         return employee;
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/createEmployees",method = RequestMethod.POST)
-    public Employees employees(@RequestBody Employees employees){
-        ArrayList<Employee> employeeArrayList= employees.getEmployees();
-        for (Employee employee:employeeArrayList){
-            log.debug("Create deparment " , employee);
-            employeeService.save(employee);
-            log.debug("Employee create successfully with info{}", employee );
-        }
-        return employees;
-
-    }
+//
+//    @ResponseBody
+//    @RequestMapping(value = "/createEmployees",method = RequestMethod.POST)
+//    public Employees employees(@RequestBody Employees employees){
+//        ArrayList<Employee> employeeArrayList= employees.getEmployees();
+//        for (Employee employee:employeeArrayList){
+//            log.debug("Create employee " , employee);
+//            employeeService.save(employee);
+//            log.debug("Employee create successfully with info{}", employee );
+//        }
+//        return employees;
+//
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/updateEmployee/{id}",method = RequestMethod.PUT)
