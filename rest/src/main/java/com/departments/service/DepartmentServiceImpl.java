@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by alex on 8.2.17.
  */
-//@Repository
+
 @Transactional
 @Service(value = "departmentService")
 public class DepartmentServiceImpl implements DepartmentService {
